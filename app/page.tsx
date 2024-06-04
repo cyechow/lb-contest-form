@@ -33,11 +33,11 @@ export default function Home() {
 
   return (
     <div>
-      <main className="h-screen flex items-center justify-center">
+      <main className="flex flex-row min-h-screen justify-center items-center">
         <form
           onSubmit={formik.handleSubmit}
-          className="bg-white flex rounded-lg w-1/2 font-sans">
-          <div className="flex-1 text-gray-700 p-16">
+          className="bg-white flex rounded-lg font-sans">
+          <div className="flex-1 text-gray-700 p-20">
             <h1 className="text-3xl font-bold pb-6">LimitBreaker Giveaway Contest</h1>
             <p className="pb-4">Enter our giveaway contest for a chance to win limited LimitBreaker items!</p>
             <p className="pb-4">To enter the draw, please follow LimitBreaker on Instagram <a href="https://www.instagram.com/lb.limitbreaker/">@lb.limitbreaker</a>
