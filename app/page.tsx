@@ -3,9 +3,16 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import { saveEntry } from "@/app/actions/actions"
+import { saveEntry } from "@/app/_lib/actions"
+import { useState } from "react";
+import ThankYou from "./_components/thankyou";
+
+import Image from "next/image";
+import imageFile from "../public/image.jpg";
 
 export default function Home() {
+  const [submitted, setSubmitted] = useState(false)
+
   // Router
   const router = useRouter();
 
@@ -27,9 +34,16 @@ export default function Home() {
     onSubmit: (values) => {
       console.log(values)
       saveEntry(values)
-      router.push('/success')
+      // router.push('/success')
+      setSubmitted(true)
     }
   });
+
+  if (submitted) {
+    return (
+      <ThankYou />
+    )
+  }
 
   return (
     <div>
@@ -88,6 +102,15 @@ export default function Home() {
               </div>
             </div>
           <button type="submit" className="bg-gray-500 font-bold text-sm text-white py-3 mt-6 rounded-lg w-full">Submit</button>
+          </div>
+          <div className="relative flex-1">
+            <Image
+              className=" object-cover rounded-lg"
+              fill
+              priority
+              src={imageFile}
+              alt="dragonboat team"
+            />
           </div>
         </form>
       </main>

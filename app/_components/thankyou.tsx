@@ -1,6 +1,5 @@
-'use client'
 
-export default function Success() {
+export default function ThankYou() {
 	return (
 		<main className="flex flex-row min-h-screen justify-center items-center">
 			<div className="bg-white rounded-lg font-sans text-gray-700 p-16">
