@@ -1,3 +1,41 @@
+# Introduction
+
+This is a simple web application that is essentially a form for entering a into a contest.
+
+Things that it should do:
+
+- validate form inputs
+- handle form submission by:
+  - sending form data to be stored into the DB
+  - updating page to show that the form has been submitted
+- have the ability return to the form after a submission
+
+The look and feel:
+
+- this will need to be responsive to the various different devices, mobile is the main focus but computer/browser is also important
+
+## Database
+
+This is using a postgres database that's hosted on Vercel.
+
+## Development Setup
+
+- Create a .env file and get the db information off of Vercel to put into it
+
+## Folder Structure
+
+- `app/` >> contains core functionality
+  - `_components/` >> contains React components
+  - `_lib/` >> contains functions that does important things that doesn't need to be exposed
+  - the entry to the app is through the `page.tsx` at this level, all other app routes are created by having a folder with a `page.tsx` inside, see [NextJS' docs here](https://nextjs.org/docs/app/building-your-application/routing#roles-of-folders-and-files) for details. For example:
+    - `info/` >> this would be a route of `~/info`
+      - `page.tsx` >> this would be what's shown at `~/info`
+- `public/` >> resources/images
+
+---
+
+# NextJS Bootstrapped Application
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
