@@ -7,6 +7,8 @@ import { saveEntry } from "@/app/_lib/actions"
 import { useState } from "react";
 import ThankYou from "./_components/thankyou";
 
+import EntryForm from "./_components/form";
+
 import Image from "next/image";
 import imageFile from "../public/image.jpg";
 
@@ -32,87 +34,36 @@ export default function Home() {
     }),
 
     onSubmit: (values) => {
-      console.log(values)
       saveEntry(values)
-      // router.push('/success')
       setSubmitted(true)
     }
   });
 
+  const resetForm = () => {
+    setSubmitted(false);
+  }
+
   if (submitted) {
     return (
-      <ThankYou />
+      <ThankYou resetSubmitted={ resetForm } />
     )
   }
 
   return (
     <div>
-      <main className="flex flex-row min-h-screen justify-center items-center">
-        <form
-          onSubmit={formik.handleSubmit}
-          className="bg-white flex rounded-lg font-sans">
+      <main className="flex flex-row min-h-screen justify-center items-center bg-white font-sans">
+        <div className="flex">
           <div className="flex-1 text-gray-700 p-20">
-            <h1 className="text-3xl font-bold pb-6">LimitBreaker Giveaway Contest</h1>
-            <p className="pb-4">Enter our giveaway contest for a chance to win limited LimitBreaker items!</p>
-            <p className="pb-4">To enter the draw, please follow LimitBreaker on Instagram <a href="https://www.instagram.com/lb.limitbreaker/">@lb.limitbreaker</a>
-              {' '}and submit your name and IG handle.</p>
-            <p className="pb-4">The winners will be announce on <i className="text-red-500">some date</i>.</p>
-            <div className="mt-6">
-              {/* Input: Name */}
-              <div className="pb-4">
-                <label
-                  htmlFor="name"
-                  className={`block font-bold text-sm pb-2 ${
-                    formik.touched.name && formik.errors.name
-                    ? "text-red-400"
-                    : ""
-                  }`}>
-                  {formik.touched.name && formik.errors.name ? "Name (" + formik.errors.name + ")" : "Name"}
-                </label>
-                <input
-                  className="border-2 border-gray-500 p-2 rounded-md focus:border-red-500 focus:ring-red-500"
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                  value={formik.values.name}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
+              <h1 className="text-3xl font-bold pb-6">LimitBreaker Giveaway Contest</h1>
+              <p className="pb-4">Enter our giveaway contest for a chance to win limited LimitBreaker items!</p>
+              <p className="pb-4">To enter the draw, please follow LimitBreaker on Instagram <a href="https://www.instagram.com/lb.limitbreaker/">@lb.limitbreaker</a>
+                {' '}and submit your name and IG handle.</p>
+              <p className="pb-4">The winners will be announce on <i className="text-red-500">some date</i>.</p>
+              <div className="mt-6">
+                <EntryForm setSubmitted={() => setSubmitted(true)} />
               </div>
-              {/* Input: IG Handle */}
-              <div className="pb-4">
-                <label
-                  htmlFor="ighandle"
-                  className={`block font-bold text-sm pb-2 ${
-                    formik.touched.ighandle && formik.errors.ighandle
-                    ? "text-red-400"
-                    : ""
-                  }`}>
-                  {formik.touched.ighandle && formik.errors.ighandle ? "Instagram Handle (" + formik.errors.ighandle + ")" : "Instagram Handle"}
-                </label>
-                <input
-                  className="border-2 border-gray-500 p-2 rounded-md focus:border-red-500 focus:ring-red-500"
-                  type="text"
-                  name="ighandle"
-                  placeholder="Enter your Instagram handle"
-                  value={formik.values.ighandle}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              </div>
-            </div>
-          <button type="submit" className="bg-gray-500 font-bold text-sm text-white py-3 mt-6 rounded-lg w-full">Submit</button>
           </div>
-          <div className="relative flex-1">
-            <Image
-              className=" object-cover rounded-lg"
-              fill
-              priority
-              src={imageFile}
-              alt="dragonboat team"
-            />
-          </div>
-        </form>
+        </div>
       </main>
     </div>
   );
