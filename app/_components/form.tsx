@@ -1,16 +1,22 @@
-import { useFormik, Field, Formik, Form, FormikHelpers, FormikProvider, useField } from "formik"
+import { useFormik, Form, FormikProvider, useField } from "formik"
 import { saveEntry } from "@/app/_lib/actions"
 import * as Yup from "yup"
 import React from "react";
-import Image from "next/image";
-import imageFile from "../../public/image.jpg";
 
 interface formProps {
 	setSubmitted: () => void
 }
 
-const FormInput = ({ label, helpText, ...props }) => {
-	const [field, meta] = useField(props)
+interface inputProps {
+	label: string,
+	helpText: string,
+	id: string,
+	name: string,
+	type: string
+}
+
+const FormInput = ({ label, helpText, id, name, type } : inputProps) => {
+	const [field, meta] = useField({ id, name, type })
 
 	const [didFocus, setDidFocus] = React.useState(false);
 	const handleFocus = () => setDidFocus(true);
@@ -22,11 +28,11 @@ const FormInput = ({ label, helpText, ...props }) => {
 		}`}>
 			<div className="flex items-center space-between">
 				<label
-					htmlFor={props.id}
+					htmlFor={id}
 				>{label}</label>{' '}
 				{showFeedback ? (
 					<div
-						id={`${props.id}-feedback`}
+						id={`${id}-feedback`}
 						aria-live="polite"
 						className="feedback text-sm"
 					>
@@ -36,14 +42,14 @@ const FormInput = ({ label, helpText, ...props }) => {
 			</div>
 			<div className="flex items-center space-between">
 				<input
-					{...props}
+					{...{id, name, type}}
 					{...field}
 					className="flex-1 border-2 border-gray-500 p-2 rounded-md focus:border-red-500 focus:ring-red-500"
-					aria-describedby={`${props.id}-feedback ${props.id}-help`}
+					aria-describedby={`${id}-feedback ${id}-help`}
 					onFocus={handleFocus}
 				/>
 			</div>
-			<div className="text-xs" id={`${props.id}-help`} tabIndex={-1}>
+			<div className="text-xs" id={`${id}-help`} tabIndex={-1}>
 				{helpText}
 			</div>
 		</div>
