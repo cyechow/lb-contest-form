@@ -2,23 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Bebas_Neue } from "next/font/google";
 
 import ThankYou from "./_components/thankyou";
 import EntryForm from "./_components/form";
 
-const bebas_neue = Bebas_Neue({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
-  const [days, setDays] = useState<number>(0);
-  const [hours, setHours] = useState<number>(0);
-  const [minutes, setMinutes] = useState<number>(0);
-  const [seconds, setSeconds] = useState<number>(0);
 
   if (submitted) {
     return (
@@ -40,14 +29,13 @@ export default function Home() {
               width={1453}
               height={818}
               objectFit="cover"
-              className="rounded-none"
+              className="rounded-none mb-6"
             />
-            <h1 className={`text-8xl font-bold mb-6 text-center ${bebas_neue.className}`}>
-              Giveaway
-            </h1>
-            <p className="mb-4">
-              🎉 Join Our Giveaway for a Chance to Win Exclusive
-              LimitBreaker Items! 🎉
+            <p className="text-xl text-customCoral text-center">
+              Join Our Giveaway for a Chance to
+            </p>
+            <p className="text-xl text-customCoral text-center mb-8">
+              Win Exclusive LimitBreaker Items!
             </p>
             <p>To enter:</p>
             <ol className="my-4 ml-4 flex-col flex gap-1">
@@ -57,7 +45,7 @@ export default function Home() {
                   Follow us on Instagram{" "}
                   <a
                     href="https://www.instagram.com/lb.limitbreaker/"
-                    className="text-blue-500 underline"
+                    className="text-white underline"
                   >
                     @lb.limitbreaker
                   </a>
