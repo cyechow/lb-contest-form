@@ -45,7 +45,7 @@ const FormInput = ({ label, helpText, id, name, type }: inputProps) => {
         <input
           {...{ id, name, type }}
           {...field}
-          className="flex-1 text-gray-500 border-2 border-gray-500 p-2 rounded-md focus:border-red-500 focus:ring-red-500"
+          className="flex-1 text-gray-500 border-2 border-gray-500 p-2 rounded-md focus:border-customCoral focus:ring-customCoral"
           aria-describedby={`${id}-feedback ${id}-help`}
           onFocus={handleFocus}
         />

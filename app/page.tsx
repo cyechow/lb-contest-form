@@ -35,7 +35,7 @@ export default function Home() {
               Join Our Giveaway for a Chance to
             </p>
             <p className="text-xl text-customCoral text-center mb-8">
-              Win Exclusive LimitBreaker Items!
+              Win Exclusive LimitBreaker Gear!
             </p>
             <p>To enter:</p>
             <ol className="my-4 ml-4 flex-col flex gap-1">
@@ -59,7 +59,7 @@ export default function Home() {
               </li>
             </ol>
             <p className="mb-4">
-              Winners will be announced on our Instagram page on{" "}
+              Winners will be announced on our Instagram feed on{" "}
               <span className="text-lg text-customCoral font-bold ml-2 mr-2">
                 June 23rd, 2024{" "}
               </span>{" "}
