@@ -6,12 +6,14 @@ export default function ThankYou({ resetSubmitted  } : pageProps) {
 	return (
 		<main className="flex flex-row min-h-screen justify-center items-center text-center">
 			<div className="rounded-lg font-sans text-customGreen p-16">
-					<h1 className="text-3xl pb-4">Congrats, you&apos;ve entered the giveaway!</h1>
-				<p className="text-customGreen">The draw will happen on{" "}
-					<span className="text-lg text-customCoral font-bold">
-						June 23rd, 2024{" "}
-					</span>{" "}
-					, we will reach out if you&apos;ve won!
+					<h1 className="text-3xl pb-8">Thank you for entering our giveaway!</h1>
+				<p className="text-customGreen">The drawing will happen on{" "}
+					<span className="text-lg text-customCoral font-bold ml-1">
+						June 23rd, 2024
+					</span>
+				</p>
+				<p className="text-customGreen">
+					Keep your eyes peeled on our Instagram feed!
 				</p>
 				<button
 					type="submit"
