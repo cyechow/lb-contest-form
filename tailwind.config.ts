@@ -11,10 +11,14 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'hero-pattern': "url('/images/bg.png')"
       },
+      colors: {
+        customGreen: '#C4DA5E',
+        customPurple: '#4D1B73',
+        customDarkPurple: '#23003E',
+        customCoral: '#F0957E',
+      }
     },
   },
   plugins: [nextui()],
