@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Bebas_Neue } from "next/font/google";
 
@@ -14,22 +15,35 @@ const bebas_neue = Bebas_Neue({
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
-
-  const resetForm = () => {
-    setSubmitted(false);
-  };
+  const [days, setDays] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
 
   if (submitted) {
-    return <ThankYou resetSubmitted={resetForm} />;
+    return (
+      <div className="bg-hero-pattern bg-cover">
+        <ThankYou resetSubmitted={() => setSubmitted(false)} />
+       </div>
+    );
   }
 
   return (
-    <div>
-      <main className="flex flex-row min-h-screen justify-center items-center bg-white">
+    <div className="bg-hero-pattern bg-cover">
+      <main className="flex flex-row min-h-screen justify-center items-center">
         <div className="flex">
-          <div className="flex-1 text-gray-700 p-20">
-            <h1 className={`text-3xl font-bold mb-6 ${bebas_neue.className}`}>
-              LimitBreaker Giveaway
+          <div className="flex-1 text-customGreen p-20">
+            <Image
+              src="/images/otter.png"
+              alt="LB otter image"
+              layout="responsive"
+              width={1453}
+              height={818}
+              objectFit="cover"
+              className="rounded-none"
+            />
+            <h1 className={`text-8xl font-bold mb-6 text-center ${bebas_neue.className}`}>
+              Giveaway
             </h1>
             <p className="mb-4">
               🎉 Join Our Giveaway for a Chance to Win Exclusive
@@ -58,7 +72,7 @@ export default function Home() {
             </ol>
             <p className="mb-4">
               Winners will be announced on our Instagram page on{" "}
-              <span className="text-lg text-red-500 font-bold">
+              <span className="text-lg text-customCoral font-bold ml-2 mr-2">
                 June 23rd, 2024{" "}
               </span>{" "}
               and contacted via direct message.

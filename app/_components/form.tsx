@@ -94,7 +94,7 @@ export default function EntryForm({ setSubmitted }: formProps) {
         <div>
           <button
             type="submit"
-            className="bg-purple-500 font-bold text-sm text-white py-3 mt-6 rounded-lg w-full hover:bg-pink-400 transition"
+            className="bg-customCoral font-bold text-sm text-white py-3 mt-6 rounded-lg w-full hover:bg-pink-400 transition"
           >
             Submit
           </button>
