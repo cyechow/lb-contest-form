@@ -70,8 +70,6 @@ export default function EntryForm({ setSubmitted }: formProps) {
         .min(2, "Name must be at least 2 characters long")
         .required("Name is required"),
       ighandle: Yup.string()
-        .matches(RegExp("^[a-zA-Z0-9.]+$"), "Valid Instagram handle required.")
-        .max(30, "Valid Instagram handles are 30 characters or less.")
         .required("Instagram handle is required."),
     }),
 
