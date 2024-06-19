@@ -9,8 +9,8 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "LimitBreaker Giveaway Contest",
-  description: "For contest entry",
+  title: "LimitBreaker Giveaway",
+  description: "For giveaway entry",
 };
 
 export default function RootLayout({
