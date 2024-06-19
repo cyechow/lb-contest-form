@@ -13,7 +13,7 @@ export default function ThankYou({ resetSubmitted  } : pageProps) {
 					</span>
 				</p>
 				<p className="text-customGreen">
-					Keep your eyes peeled on our Instagram feed!
+					Winners will be announced on our Instagram feed
 				</p>
 				<button
 					type="submit"
