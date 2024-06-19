@@ -3,10 +3,6 @@
 
 // export default nextConfig;
 
-// next.config.mjs
-
-import path from 'path';
-
 export default {
   webpack(config, { isServer }) {
     // Add custom webpack config here
