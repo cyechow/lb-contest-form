@@ -5,9 +5,19 @@ import { useState } from "react";
 
 import ThankYou from "./_components/thankyou";
 import EntryForm from "./_components/form";
+import Closed from "./_components/closed";
 
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
+  const [ended, setEnded] = useState(true);
+
+  if (ended) {
+    return (
+      <div className="bg-hero-pattern bg-cover">
+        <Closed />
+        </div>
+    );
+  }
 
   if (submitted) {
     return (
