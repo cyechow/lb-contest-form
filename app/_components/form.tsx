@@ -1,5 +1,5 @@
 import { useFormik, Form, FormikProvider, useField } from "formik";
-import { saveEntry } from "@/app/_lib/actions";
+import { checkEntry, saveEntry } from "@/app/_lib/actions";
 import * as Yup from "yup";
 import React from "react";
 
@@ -70,8 +70,21 @@ export default function EntryForm({ setSubmitted }: formProps) {
         .min(2, "Name must be at least 2 characters long")
         .required("Name is required"),
       ighandle: Yup.string()
-        .required("Instagram handle is required."),
+        .required("Instagram handle is required.")
+        .test("Unique IG handle", "IG handle already submitted",
+          function (value) {
+            return new Promise(async (resolve, reject) => {
+              let valid = await checkEntry(value);
+              console.log(`Entry is valid: ${valid}`)
+              resolve(valid)
+            })
+          }
+        )
     }),
+    // TODO: what do we want to do with validation & feedback? Currently validate & call checkEntry on every change, not optimal.
+    // OnChange/Blur set to false will push validation to onSubmit only.
+    // validateOnChange: false,
+    // validateOnBlur: false,
 
     onSubmit: async (values) => {
       saveEntry(values);
